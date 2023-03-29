@@ -1,0 +1,66 @@
+<form [formGroup]="formulario" (ngSubmit)="login()">
+  <div class="row">
+    <div class="col-md-4">
+      <h1>Iniciar Sesión</h1>
+      <mat-form-field appearance="outline" class="fill">
+        <mat-label>Usuario</mat-label>
+        <input matInput type="text" formControlName="usuario" />
+      </mat-form-field>
+      <div *ngIf="formulario.controls['usuario'].valid" class="valido">
+        Nombre de usuario valido
+      </div>
+      <div
+        *ngIf="formulario.controls['usuario'].errors?.['required']"
+        class="invalido"
+      >
+        El campo de nombre de usuario no puede estar vacio
+      </div>
+      <div
+        *ngIf="formulario.controls['usuario'].errors?.['minlength']"
+        class="invalido"
+      >
+        El nombre de usuario debe tener al menos 3 caracteres
+      </div>
+    </div>
+    <div class="col-md-4">
+      <mat-form-field appearance="outline" class="fill">
+        <mat-label>Contraseña</mat-label>
+        <input
+          matInput
+          type="text"
+          formControlName="contrasena"
+          type="password"
+        />
+      </mat-form-field>
+      <div *ngIf="formulario.controls['contrasena'].valid" class="valido">
+        El campo de la contraseña no puede estar vacio
+      </div>
+      <div
+        *ngIf="formulario.controls['contrasena'].errors?.['required']"
+        class="invalido"
+      >
+        El campo de la contraseña no puede estar vacio
+      </div>
+      <div
+        *ngIf="formulario.controls['contrasena'].errors?.['minlength']"
+        class="invalido"
+      >
+        La contraseña debe tener al menos 6 caracteres
+      </div>
+    </div>
+    <div class="col-md-2">
+      <mat-slide-toggle formControlName="esAdmin">Es admin</mat-slide-toggle>
+    </div>
+    <div class="col-md-2">
+      <button
+        type="submit"
+        (click)="login()"
+        mat-raised-button
+        color="primary"
+        [disabled]="!formulario.valid"
+      >
+        Login
+      </button>
+    </div>
+  </div>
+</form>

@@ -1,0 +1,14 @@
+{
+  "usuarios": [
+    {
+      "usuario": "victoria",
+      "contrasena": "12345678",
+      "esAdmin": true
+    },
+    {
+      "usuario": "agustin",
+      "contrasena": "12345678",
+      "esAdmin": false
+    }
+  ]
+}
